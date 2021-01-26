@@ -1,7 +1,7 @@
 import cv2
 
 
-def image_to_vector(image, size=(32, 32)):
+def image_to_vector(image, size=(200, 200)):
     resized_image = cv2.resize(image, size, interpolation=cv2.INTER_CUBIC)
     img_rgb_cubic = cv2.cvtColor(resized_image, cv2.COLOR_BGR2RGB)
     return img_rgb_cubic
@@ -13,7 +13,7 @@ def normalize(image):
     return image
 
 
-def image_to_pixels(image, size=(32, 32)):
+def image_to_pixels(image, size=(200, 200)):
     pixels = image_to_vector(image, size=size)
     pixels = normalize(pixels)
     return pixels.flatten()

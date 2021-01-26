@@ -29,6 +29,8 @@ IMAGE_SIZE = 200
 def get_cnn_model(type: int):
     model = None
 
+    # https://machinelearningmastery.com/how-to-develop-a-convolutional-neural-network-to-classify-photos-of-dogs-and-cats/
+    #
     # One layer
     if type == 1:
         model = Sequential()
@@ -183,7 +185,6 @@ def run_cnn(type: int):
     _steps_per_epoch = 200
     _validation_steps = 200
     _epochs = 30
-    _validation_freq = 1
 
     history = model.fit_generator(train_set,
                                   steps_per_epoch=_steps_per_epoch,
@@ -192,8 +193,7 @@ def run_cnn(type: int):
                                   epochs=_epochs,
                                   callbacks=get_cnn_callbacks(),
                                   max_queue_size=32,
-                                  workers=16,
-                                  validation_freq=_validation_freq)
+                                  workers=16)
 
     (loss, accuracy) = model.evaluate(test_set, steps=len(test_set), verbose=2)
     model_name = f'model_{type}_acc_{accuracy}'

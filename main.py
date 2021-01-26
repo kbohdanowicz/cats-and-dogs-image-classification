@@ -12,7 +12,7 @@ def config_cnn():
 
 
 def main():
-    # Classifiers
+    # KNN
     (raw_images, histogram, labels) = get_images_data(load_from_file=True)
 
     train_test_data_raw_images = get_train_test_data(raw_images, labels, ratio=0.25)
