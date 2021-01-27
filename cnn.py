@@ -30,7 +30,7 @@ def get_cnn_model(type: int):
     model = None
 
     # https://machinelearningmastery.com/how-to-develop-a-convolutional-neural-network-to-classify-photos-of-dogs-and-cats/
-    #
+
     # One layer
     if type == 1:
         model = Sequential()
